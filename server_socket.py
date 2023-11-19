@@ -21,18 +21,7 @@ while True:
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-
     results_data = response.json()
+    print(results_data)
 
-    print("Done gathering information, now writing to text file")
-
-    with open('jobs.txt', 'w') as g:
-        for item in results_data["data"]:
-            g.write(item["employer_name"])
-            g.write(item["job_title"])
-            g.write(item["job_description"])
-            g.write("\n")
-
-        g.close()
-    print("Done writing to txt file")
-    socket.send(json.dumps('jobs.txt').encode("utf-8"))
+    socket.send(json.dumps(results_data).encode("utf-8"))
