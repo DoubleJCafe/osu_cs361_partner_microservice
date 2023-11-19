@@ -1,4 +1,4 @@
-# osu_cs361_partner_microservice
+#Partner microservice communication contract
 >The file that is sending and reciving data to the microservice must use ZMQ and have the following lines of code to work:
 
   import zmq
@@ -6,7 +6,7 @@
   
   context = zmq.Context()
   
-  # socket to talk to server
+  """socket to talk to server"""
   socket = context.socket(zmq.REQ)
   socket.connect("tcp://localhost:5555")
 
